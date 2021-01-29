@@ -1,14 +1,17 @@
 // HTML elements
 const button = document.getElementById("calculate-btn")
+const result = document.querySelector("div#result");
 
 // When button is clicked
 button.addEventListener('click', function(){
     // Take inputs
     [windVelocity, temperature] = [...getInputs()];
 
-    // Check if wind velocity and temperature input are valid
-    checkInputs(windVelocity, temperature);
-    console.log(checkInputs(windVelocity, temperature));
+    // Break if wind velocity and temperature input are not valid
+    if(!checkInputs(windVelocity, temperature)){
+        showErrorMessage();
+        return;
+    }
 })
 
 const getInputs = () => {
@@ -29,4 +32,9 @@ const checkInputs = (windVelocity, temperature) => {
     }
 
     return isPositive() && isNotEmpty();
+}
+
+// Show error message if data is not valid
+const showErrorMessage = () => {
+    result.innerText = 'Error! Check if your data is right';
 }
