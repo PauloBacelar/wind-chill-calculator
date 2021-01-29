@@ -21,18 +21,27 @@
         
         <!-- Choose measure system -->
         <div id="imperial-or-metric">
-            <input type="radio" name="measure-system"><label for="measure-system">Metric system</label>
+            <input type="radio" name="measure-system" checked><label for="measure-system">Metric system</label>
             <input type="radio" name="measure-system"><label for="measure-system">Imperial system</label>
         </div>
         
         <!-- Input -->
-        <input type="number" name="binary" id="binary-input"><br>
+        <div id="wind-velocity-div">
+            <label for="wind-velocity">Wind velocity: </label>
+            <input type="number" name="wind-velocity" id="wind-velocity-input">
+        </div>
+
+        <div id="temperature-div">
+            <label for="temperature">Temparature: </label>
+            <input type="number" name="temperature" id="temperature-input">
+        </div>
+        
 
         <!-- Button -->
-        <button id="convert-btn">Convert</button>
+        <button id="calculate-btn">Calculate</button>
 
         <!-- Results -->
-        <div id="decimal-result"><p id="cents">Decimal</p></div>
+        <div id="result"><p id="cents">Result</p></div>
 
         <script src="script.js"></script>
     </div>

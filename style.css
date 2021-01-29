@@ -37,26 +37,34 @@ h2 {
 
 /* Input and button */
 #imperial-or-metric {
-    display: inline-block;
+    display: block;
 }
 
 #imperial-or-metric label {
     margin: 0px 10px 0px 5px;
 }
 
-#binary-input {
+#wind-velocity-input, #temperature-input {
     /* Border */
     border-radius: 5%;
     outline: none;
     border: none;
 
     /* Margin and padding */
-    padding: 7.5px;
+    padding: 5px;
     margin: 10px auto auto auto;
-    display: block;
+
+    /* Size */
+    width: 50px;
 }
 
-#convert-btn {
+#wind-velocity-div {
+    /* Position */
+    display: block;
+    margin-top: 10px;
+}
+
+#calculate-btn {
     /* Margin and padding */
     padding: 7.5px;
     margin-top: 20px;
@@ -83,14 +91,14 @@ h2 {
     transition-duration: .5s;
 }
 
-#convert-btn:hover {
+#calculate-btn:hover {
     /* Colors and text */
     background-color:  rgb(0, 29, 82);
     color: white;
 }
 
-/* Results */
-#decimal-result {
+/* Result */
+#result {
     /* Size */
     width: 180px;
 
