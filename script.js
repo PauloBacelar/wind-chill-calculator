@@ -12,6 +12,12 @@ button.addEventListener('click', function(){
         showErrorMessage();
         return;
     }
+
+    // Convert metric to imperial system if necessary
+    let isMetric = document.getElementById('metric').checked;
+    if(isMetric){
+        [temperature, windVelocity] = toImperial(temperature, windVelocity);
+    }
 })
 
 const getInputs = () => {
@@ -37,4 +43,19 @@ const checkInputs = (windVelocity, temperature) => {
 // Show error message if data is not valid
 const showErrorMessage = () => {
     result.innerText = 'Error! Check if your data is right';
+}
+
+// Convert metric to imperial system
+const toImperial = (temp, windSpeed) => {
+    // Celsius to fahrenheit
+    const celsiusToF = () => {
+        return temp * 1.8 + 32;
+    }
+
+    // km/h to mph
+    const toMph = () => {
+        return windSpeed / 1.609;
+    }
+
+    return [celsiusToF(), toMph().toFixed(2)];
 }
