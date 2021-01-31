@@ -18,6 +18,12 @@ button.addEventListener('click', function(){
     if(isMetric){
         [temperature, windVelocity] = toImperial(temperature, windVelocity);
     }
+
+    // Calculate wind-chill
+    let windChill = calculateWindChill(temperature, windVelocity);
+
+    // Show result in 'result' div
+    showResult(windChill);
 })
 
 const getInputs = () => {
@@ -58,4 +64,16 @@ const toImperial = (temp, windSpeed) => {
     }
 
     return [celsiusToF(), toMph().toFixed(2)];
+}
+
+// Calculate wind-chill
+const calculateWindChill = (temp, windSpeed) => {
+    console.log(`35.74 + 0.6215(${temp}) - 35.75(${windSpeed}^0.16) + 0.4275(${temp})(${windSpeed}^0.16)`)
+
+    return 35.74 + 0.6215 * temp - 35.75 * (windSpeed ** 0.16) + 0.4275 * temp * (windSpeed ** 0.16);
+}
+
+// Show wind-chill
+const showResult = windChill => {
+    result.innerText = `It will feel like: ${windChill.toFixed(2)}°F`;
 }
