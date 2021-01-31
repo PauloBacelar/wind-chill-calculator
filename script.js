@@ -1,5 +1,5 @@
 // HTML elements
-const button = document.getElementById("calculate-btn")
+const button = document.getElementById("calculate-btn");
 const result = document.querySelector("div#result");
 
 // When button is clicked
